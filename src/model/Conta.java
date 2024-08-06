@@ -1,7 +1,11 @@
 package model;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public abstract class Conta implements IConta {
 
     private static final int AGENCIA_PADRAO = 1;
@@ -17,38 +21,6 @@ public abstract class Conta implements IConta {
         this.numero = SEQUENCIAL.getAndIncrement();
         this.cliente = cliente;
     }
-
-	public Cliente getCliente() {
-		return this.cliente;
-	}
-
-    public int getAgencia() {
-		return agencia;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setAgencia(int agencia) {
-		this.agencia = agencia;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
 
 	@Override
     public void sacar(double valor) {
